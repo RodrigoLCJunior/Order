@@ -59,15 +59,15 @@ int main() {
     raiz->direita->direita->esquerda = novoNo(13);
     raiz->direita->direita->direita = novoNo(15);
 
-        printf("Travessia pre-order:\n");
+        printf("Pre-order:\n");
     preOrder(raiz, 0);
     printf("\n");
 
-    printf("Travessia in-order:\n");
+    printf("In-order:\n");
     inOrder(raiz, 0);
     printf("\n");
 
-    printf("Travessia post-order:\n");
+    printf("Post-order:\n");
     postOrder(raiz, 0);
     printf("\n");
 
