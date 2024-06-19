@@ -2,53 +2,53 @@
 #include <stdlib.h>
 #include <unistd.h>  
 
-struct Node {
+struct No {
     int data;
-    struct Node* esquerda;
-    struct Node* direita;
+    struct No* esquerda;
+    struct No* direita;
 };
 
 
-struct Node* novoNo(int data) {
-    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
-    node->data = data;
-    node->esquerda = NULL;
-    node->direita = NULL;
-    return node;
+struct No* novoNo(int data) {
+    struct No* No = (struct No*)malloc(sizeof(struct No));
+    No->data = data;
+    No->esquerda = NULL;
+    No->direita = NULL;
+    return No;
 }
 
-void preOrder(struct Node* node, int nivel) {
-    if (node == NULL)
+void preOrder(struct No* No, int nivel) {
+    if (No == NULL)
         return;
     for (int i = 0; i < nivel; i++) printf("  ");  
-    printf("%d\n", node->data); 
+    printf("%d\n", No->data); 
     usleep(1000000); 
-    preOrder(node->esquerda, nivel + 1);
-    preOrder(node->direita, nivel + 1); 
+    preOrder(No->esquerda, nivel + 1);
+    preOrder(No->direita, nivel + 1); 
 }
 
 
-void inOrder(struct Node* node, int nivel) {
-    if (node == NULL)
+void inOrder(struct No* No, int nivel) {
+    if (No == NULL)
         return;
-    inOrder(node->esquerda, nivel + 1);  
+    inOrder(No->esquerda, nivel + 1);  
     for (int i = 0; i < nivel; i++) printf("  "); 
-    printf("%d\n", node->data);  
+    printf("%d\n", No->data);  
     usleep(1000000);  
-    inOrder(node->direita, nivel + 1);}
+    inOrder(No->direita, nivel + 1);}
 
-void postOrder(struct Node* node, int nivel) {
-    if (node == NULL)
+void postOrder(struct No* No, int nivel) {
+    if (No == NULL)
         return;
-    postOrder(node->esquerda, nivel + 1);  
-    postOrder(node->direita, nivel + 1);
+    postOrder(No->esquerda, nivel + 1);  
+    postOrder(No->direita, nivel + 1);
     for (int i = 0; i < nivel; i++) printf("  ");  
-    printf("%d\n", node->data); 
+    printf("%d\n", No->data); 
     usleep(1000000); }
 
 int main() {
     // Criação da árvore de exemplo com 10 números
-    struct Node* raiz = novoNo(8);
+    struct No* raiz = novoNo(8);
     raiz->esquerda = novoNo(3);
     raiz->direita = novoNo(10);
     raiz->esquerda->esquerda = novoNo(1);
